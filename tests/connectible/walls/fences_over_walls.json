@@ -2,7 +2,7 @@
     "flintVersion": null, 
     "name": "fences_over_walls", 
     "description": "Recorded test: fences_over_walls", 
-    "tags": ["recorded"], 
+    "tags": ["wall", "fence", "connectible"], 
     "dependencies": [], 
     "setup": {
         "cleanup": {
