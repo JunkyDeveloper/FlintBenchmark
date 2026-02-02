@@ -14,66 +14,21 @@
             "at": 0, 
             "do": "place_each", 
             "blocks": [
-                {
-                    "pos": [0, 0, 0], 
-                    "block": {
-                        "id"         : "minecraft:cobblestone_wall"
-                    }
-                }, 
-                {
-                    "pos": [0, 1, 0], 
-                    "block": {
-                        "id"         : "minecraft:cobblestone_wall"
-                    }
-                }, 
-                {
-                    "pos": [-2, 0, 0], 
-                    "block": {
-                        "id"         : "minecraft:cobblestone_wall"
-                    }
-                }, 
-                {
-                    "pos": [-1, 2, 0], 
-                    "block": {
-                        "id"         : "minecraft:cobblestone_wall"
-                    }
-                }, 
-                {
-                    "pos": [-2, 1, 0], 
-                    "block": {
-                        "id"         : "minecraft:cobblestone_wall"
-                    }
-                }, 
-                {
-                    "pos": [-2, 2, 0], 
-                    "block": {
-                        "id"         : "minecraft:cobblestone_wall"
-                    }
-                }, 
-                {
-                    "pos": [0, 2, 0], 
-                    "block": {
-                        "id"         : "minecraft:cobblestone_wall"
-                    }
-                }, 
-                {
-                    "pos": [-1, 0, 0], 
-                    "block": {
-                        "id"         : "minecraft:cobblestone_wall"
-                    }
-                }
+                { "pos": [ 0, 0, 0], "block": {"id": "minecraft:cobblestone_wall"} }, 
+                { "pos": [ 0, 1, 0], "block": {"id": "minecraft:cobblestone_wall"} }, 
+                { "pos": [-2, 0, 0], "block": {"id": "minecraft:cobblestone_wall"} }, 
+                { "pos": [-1, 2, 0], "block": {"id": "minecraft:cobblestone_wall"} }, 
+                { "pos": [-2, 1, 0], "block": {"id": "minecraft:cobblestone_wall"} }, 
+                { "pos": [-2, 2, 0], "block": {"id": "minecraft:cobblestone_wall"} }, 
+                { "pos": [ 0, 2, 0], "block": {"id": "minecraft:cobblestone_wall"} }, 
+                { "pos": [-1, 0, 0], "block": {"id": "minecraft:cobblestone_wall"} }  
             ]
         }, 
         {
             "at": 1, 
             "do": "place_each", 
             "blocks": [
-                {
-                    "pos": [-1, 1, 0], 
-                    "block": {
-                        "id"         : "minecraft:glass_pane"
-                    }
-                }
+                { "pos": [-1, 1, 0], "block": {"id": "minecraft:glass_pane"} }
             ]
         }, 
         {
