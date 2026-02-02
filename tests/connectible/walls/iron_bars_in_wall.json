@@ -2,7 +2,7 @@
     "flintVersion": null, 
     "name": "iron_bars_in_wall", 
     "description": "Recorded test: iron_bars_in_wall", 
-    "tags": ["recorded"], 
+    "tags": ["wall", "bars", "connectible"], 
     "dependencies": [], 
     "setup": {
         "cleanup": {

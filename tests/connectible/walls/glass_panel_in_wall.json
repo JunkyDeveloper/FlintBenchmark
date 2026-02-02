@@ -2,7 +2,7 @@
     "flintVersion": null, 
     "name": "glass_panel_in_wall", 
     "description": "Recorded test: glass_panel_in_wall", 
-    "tags": ["recorded"], 
+    "tags": ["wall", "glass", "connectible"], 
     "dependencies": [], 
     "setup": {
         "cleanup": {

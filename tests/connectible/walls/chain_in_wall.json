@@ -2,7 +2,7 @@
     "flintVersion": null, 
     "name": "chain_in_wall", 
     "description": "Recorded test: chain_in_wall", 
-    "tags": ["recorded"], 
+    "tags": ["wall", "chain", "connectible"], 
     "dependencies": [], 
     "setup": {
         "cleanup": {

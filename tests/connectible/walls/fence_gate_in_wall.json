@@ -2,7 +2,7 @@
     "flintVersion": null, 
     "name": "fence_gate_in_wall", 
     "description": "Recorded test: fence_gate_in_wall", 
-    "tags": ["recorded"], 
+    "tags": ["wall", "fence_gate", "connectible"], 
     "dependencies": [], 
     "setup": {
         "cleanup": {
