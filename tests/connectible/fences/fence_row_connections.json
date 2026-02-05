@@ -2,6 +2,7 @@
     "name": "fence_row_connections", 
     "description": "Places fences in a row, one per tick, and verifies they connect to each other", 
     "tags": ["connectible", "fence", "wood-types", "block-state", "neighbor-update"], 
+    "minecraftIds": ["minecraft:oak_fence"],
     "setup": {
         "cleanup": {
             "region": [ [0, 63, 0], [10, 66, 2] ]

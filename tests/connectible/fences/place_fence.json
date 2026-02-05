@@ -2,7 +2,8 @@
     "flintVersion": null, 
     "name": "place_fence", 
     "description": "Tests fence connection behavior across different wood types (oak, birch, jungle, spruce, dark_oak, mangrove, cherry, acacia, pale_oak, warped, crimson, bamboo) and validates connections/disconnections with non-fence blocks.", 
-    "tags": ["connectible", "fence", "wood-types", "block-state", "neighbor-update"], 
+    "tags": ["connectible", "fence", "wood-types", "block-state", "neighbor-update"],
+    "minecraftIds": ["minecraft:oak_fence"],
     "dependencies": [], 
     "setup": {
         "cleanup": {

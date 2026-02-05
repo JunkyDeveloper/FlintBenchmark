@@ -3,6 +3,7 @@
     "name": "fence_in_wall", 
     "description": "Recorded test: fence_in_wall", 
     "tags": ["wall", "fence", "connectible"], 
+    "minecraftIds": ["minecraft:oak_fence", "minecraft:cobblestone_wall"],
     "dependencies": [], 
     "setup": {
         "cleanup": {
