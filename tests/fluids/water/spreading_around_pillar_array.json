@@ -1,0 +1,157 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json",
+    "name": "water_spreading_around_pillar_array",
+    "description": "Water flows through a grid of stone pillars (2x2 each) spaced 2 blocks apart on a flat surface. Tests that water correctly navigates around multiple obstacles simultaneously, filling all gaps between pillars with flowing water at various levels depending on distance from the source.",
+    "tags": ["pillars", "obstacles", "spread", "large"],
+    "dependencies": [],
+    "setup": {
+        "cleanup": {
+            "region": [[0, 0, 0], [20, 4, 20]]
+        }
+    },
+    "timeline": [
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 0, 0], [20, 0, 20]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 1, 0], [20, 3, 0]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 1, 20], [20, 3, 20]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 1, 0], [0, 3, 20]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[20, 1, 0], [20, 3, 20]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[4, 1, 4], [5, 3, 5]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[8, 1, 4], [9, 3, 5]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[12, 1, 4], [13, 3, 5]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[16, 1, 4], [17, 3, 5]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[4, 1, 8], [5, 3, 9]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[8, 1, 8], [9, 3, 9]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[12, 1, 8], [13, 3, 9]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[16, 1, 8], [17, 3, 9]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[4, 1, 12], [5, 3, 13]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[8, 1, 12], [9, 3, 13]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[12, 1, 12], [13, 3, 13]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[16, 1, 12], [17, 3, 13]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[4, 1, 16], [5, 3, 17]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[8, 1, 16], [9, 3, 17]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[12, 1, 16], [13, 3, 17]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[16, 1, 16], [17, 3, 17]],
+            "with": {"id": "minecraft:stone"}
+        },
+        { "at": 1, "do": "place", "pos": [10, 1, 10], "block": {"id": "minecraft:water", "level": 0} },
+        {
+            "at": 200,
+            "do": "assert",
+            "checks": [
+                {"pos": [10, 1, 10], "is": {"id": "minecraft:water", "level": "0"}},
+                {"pos": [10, 1, 6], "is": {"id": "minecraft:water"}},
+                {"pos": [10, 1, 14], "is": {"id": "minecraft:water"}},
+                {"pos": [6, 1, 10], "is": {"id": "minecraft:water"}},
+                {"pos": [14, 1, 10], "is": {"id": "minecraft:water"}},
+                {"pos": [6, 1, 6], "is": {"id": "minecraft:water"}},
+                {"pos": [14, 1, 14], "is": {"id": "minecraft:water"}},
+                {"pos": [4, 1, 4], "is": {"id": "minecraft:stone"}},
+                {"pos": [8, 1, 8], "is": {"id": "minecraft:stone"}},
+                {"pos": [16, 1, 16], "is": {"id": "minecraft:stone"}}
+            ]
+        }
+    ]
+}

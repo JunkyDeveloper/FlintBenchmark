@@ -1,0 +1,98 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json",
+    "name": "water_maze_slope_routing",
+    "description": "Water navigates a maze-like channel structure using slope pathfinding. The source is placed at one end with walls creating a winding path. A hole exists at the end of the correct path, so getSpread/getSlopeDistance guides the water through the maze toward the drop-off.",
+    "tags": ["slope", "pathfinding", "maze", "large"],
+    "dependencies": [],
+    "setup": {
+        "cleanup": {
+            "region": [[0, 0, 0], [20, 5, 16]]
+        }
+    },
+    "timeline": [
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 0, 0], [20, 0, 16]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 1, 0], [20, 1, 16]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 2, 0], [20, 4, 0]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 2, 16], [20, 4, 16]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 2, 0], [0, 4, 16]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[20, 2, 0], [20, 4, 16]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[1, 2, 4], [16, 4, 4]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[4, 2, 4], [4, 4, 12]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[4, 2, 8], [16, 4, 8]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[8, 2, 8], [8, 4, 16]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[8, 2, 12], [16, 4, 12]],
+            "with": {"id": "minecraft:stone"}
+        },
+        { "at": 0, "do": "place", "pos": [18, 1, 14], "block": {"id": "minecraft:air"} },
+        { "at": 1, "do": "place", "pos": [1, 2, 2], "block": {"id": "minecraft:water", "level": 0} },
+        {
+            "at": 200,
+            "do": "assert",
+            "checks": [
+                {"pos": [1, 2, 2], "is": {"id": "minecraft:water", "level": "0"}},
+                {"pos": [5, 2, 2], "is": {"id": "minecraft:water"}},
+                {"pos": [17, 2, 2], "is": {"id": "minecraft:water"}},
+                {"pos": [17, 2, 5], "is": {"id": "minecraft:water"}},
+                {"pos": [5, 2, 6], "is": {"id": "minecraft:water"}},
+                {"pos": [5, 2, 7], "is": {"id": "minecraft:water"}},
+                {"pos": [9, 2, 10], "is": {"id": "minecraft:water"}},
+                {"pos": [17, 2, 10], "is": {"id": "minecraft:water"}},
+                {"pos": [17, 2, 13], "is": {"id": "minecraft:water"}},
+                {"pos": [18, 0, 14], "is": {"id": "minecraft:water"}}
+            ]
+        }
+    ]
+}

@@ -1,0 +1,90 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json",
+    "name": "water_channel_race_slope_selection",
+    "description": "Water source placed between two channels of different lengths, both leading to drop-offs. The shorter channel (3 blocks) has a hole while the longer channel (7 blocks) also has a hole. Water should prefer the shorter path via getSlopeDistance and only flow that direction, ignoring the longer path entirely.",
+    "tags": ["slope", "pathfinding", "channel", "large"],
+    "dependencies": [],
+    "setup": {
+        "cleanup": {
+            "region": [[0, 0, 0], [22, 5, 8]]
+        }
+    },
+    "timeline": [
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 0, 0], [22, 0, 8]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 1, 0], [22, 1, 8]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 2, 0], [22, 4, 0]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 2, 8], [22, 4, 8]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 2, 0], [0, 4, 8]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[22, 2, 0], [22, 4, 8]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 2, 3], [22, 4, 3]],
+            "with": {"id": "minecraft:stone"}
+        },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[0, 2, 5], [22, 4, 5]],
+            "with": {"id": "minecraft:stone"}
+        },
+        { "at": 0, "do": "place", "pos": [7, 1, 2], "block": {"id": "minecraft:air"} },
+        { "at": 0, "do": "place", "pos": [15, 1, 6], "block": {"id": "minecraft:air"} },
+        {
+            "at": 0,
+            "do": "fill",
+            "region": [[10, 2, 3], [10, 4, 5]],
+            "with": {"id": "minecraft:air"}
+        },
+        { "at": 1, "do": "place", "pos": [10, 2, 4], "block": {"id": "minecraft:water", "level": 0} },
+        {
+            "at": 80,
+            "do": "assert",
+            "checks": [
+                {"pos": [10, 2, 4], "is": {"id": "minecraft:water", "level": "0"}},
+                {"pos": [10, 2, 2], "is": {"id": "minecraft:water"}},
+                {"pos": [9, 2, 2], "is": {"id": "minecraft:water"}},
+                {"pos": [8, 2, 2], "is": {"id": "minecraft:water"}},
+                {"pos": [7, 2, 2], "is": {"id": "minecraft:water"}},
+                {"pos": [7, 1, 2], "is": {"id": "minecraft:water"}},
+                {"pos": [10, 2, 6], "is": {"id": "minecraft:water"}},
+                {"pos": [11, 2, 6], "is": {"id": "minecraft:water"}},
+                {"pos": [12, 2, 6], "is": {"id": "minecraft:water"}},
+                {"pos": [13, 2, 6], "is": {"id": "minecraft:water"}},
+                {"pos": [14, 2, 6], "is": {"id": "minecraft:water"}},
+                {"pos": [15, 2, 6], "is": {"id": "minecraft:water"}},
+                {"pos": [15, 1, 6], "is": {"id": "minecraft:water"}}
+            ]
+        }
+    ]
+}
