@@ -1,289 +1,458 @@
 {
-    "flintVersion": null, 
-    "name": "walls_wall", 
-    "description": "Recorded test: walls_wall", 
-    "tags": ["wall", "connectible", "block-state", "neighbor-update"], 
-    "dependencies": [], 
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json",
+    "flintVersion": null,
+    "name": "walls_wall",
+    "description": "Recorded test: walls_wall",
+    "tags": [
+        "wall",
+        "connectible",
+        "block-state",
+        "neighbor-update"
+    ],
+    "dependencies": [],
     "setup": {
         "cleanup": {
-            "region": [ [-3, -1, -1], [1, 2, 1] ]
+            "region": [
+                [
+                    -3,
+                    -1,
+                    -1
+                ],
+                [
+                    1,
+                    2,
+                    1
+                ]
+            ]
         }
-    }, 
+    },
     "timeline": [
         {
-            "at": 0, 
-            "do": "place_each", 
+            "at": 0,
+            "do": "place_each",
             "blocks": [
-                { "pos": [ 0, 0, 0], "block": {"id": "minecraft:cobblestone_wall"} }, 
-                { "pos": [-2, 0, 0], "block": {"id": "minecraft:cobblestone_wall"} }, 
-                { "pos": [-1, 0, 0], "block": {"id": "minecraft:cobblestone_wall"} }  
-            ]
-        }, 
-        {
-            "at": 1, 
-            "do": "place_each", 
-            "blocks": [
-                { "pos": [0, 1, 0], "block": {"id": "minecraft:cobblestone_wall"} }
-            ]
-        }, 
-        {
-            "at": 1, 
-            "do": "assert", 
-            "checks": [
                 {
-                    "pos": [-2, 0, 0], 
-                    "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "up"         : "true"                      , 
-                        "waterlogged": "false"                     , 
-                        "east"       : "low"                       , 
-                        "west"       : "none"                      , 
-                        "south"      : "none"                      , 
-                        "north"      : "none"                        
+                    "pos": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "block": {
+                        "id": "minecraft:cobblestone_wall"
                     }
-                }, 
+                },
                 {
-                    "pos": [-1, 0, 0], 
-                    "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "east"       : "low"                       , 
-                        "waterlogged": "false"                     , 
-                        "west"       : "low"                       , 
-                        "north"      : "none"                      , 
-                        "up"         : "false"                     , 
-                        "south"      : "none"                        
+                    "pos": [
+                        -2,
+                        0,
+                        0
+                    ],
+                    "block": {
+                        "id": "minecraft:cobblestone_wall"
                     }
-                }, 
+                },
                 {
-                    "pos": [0, 0, 0], 
-                    "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "up"         : "true"                      , 
-                        "waterlogged": "false"                     , 
-                        "east"       : "none"                      , 
-                        "west"       : "low"                       , 
-                        "north"      : "none"                      , 
-                        "south"      : "none"                        
+                    "pos": [
+                        -1,
+                        0,
+                        0
+                    ],
+                    "block": {
+                        "id": "minecraft:cobblestone_wall"
                     }
                 }
             ]
-        }, 
+        },
         {
-            "at": 2, 
-            "do": "place_each", 
+            "at": 1,
+            "do": "place_each",
             "blocks": [
-                { "pos": [-1, 1, 0], "block": {"id": "minecraft:cobblestone_wall"} }
-            ]
-        }, 
-        {
-            "at": 2, 
-            "do": "assert", 
-            "checks": [
                 {
-                    "pos": [-2, 0, 0], 
-                    "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "east"       : "low"                       , 
-                        "west"       : "none"                      , 
-                        "north"      : "none"                      , 
-                        "south"      : "none"                      , 
-                        "up"         : "true"                      , 
-                        "waterlogged": "false"                       
-                    }
-                }, 
-                { "pos": [-2, 1, 0], "is": {"id": "minecraft:air"} }, 
-                {
-                    "pos": [-1, 0, 0], 
-                    "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "north"      : "none"                      , 
-                        "up"         : "false"                     , 
-                        "waterlogged": "false"                     , 
-                        "south"      : "none"                      , 
-                        "west"       : "low"                       , 
-                        "east"       : "low"                         
-                    }
-                }, 
-                { "pos": [-1, 1, 0], "is": {"id": "minecraft:air"} }, 
-                {
-                    "pos": [0, 0, 0], 
-                    "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "south"      : "none"                      , 
-                        "north"      : "none"                      , 
-                        "east"       : "none"                      , 
-                        "up"         : "true"                      , 
-                        "waterlogged": "false"                     , 
-                        "west"       : "low"                         
-                    }
-                }, 
-                {
-                    "pos": [0, 1, 0], 
-                    "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "west"       : "none"                      , 
-                        "south"      : "none"                      , 
-                        "north"      : "none"                      , 
-                        "waterlogged": "false"                     , 
-                        "east"       : "none"                      , 
-                        "up"         : "true"                        
+                    "pos": [
+                        0,
+                        1,
+                        0
+                    ],
+                    "block": {
+                        "id": "minecraft:cobblestone_wall"
                     }
                 }
             ]
-        }, 
+        },
         {
-            "at": 3, 
-            "do": "place_each", 
-            "blocks": [
-                { "pos": [-2, 1, 0], "block": {"id": "minecraft:cobblestone_wall"} }
-            ]
-        }, 
-        {
-            "at": 3, 
-            "do": "assert", 
+            "at": 1,
+            "do": "assert",
             "checks": [
                 {
-                    "pos": [-2, 0, 0], 
+                    "pos": [
+                        -2,
+                        0,
+                        0
+                    ],
                     "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "west"       : "none"                      , 
-                        "east"       : "low"                       , 
-                        "north"      : "none"                      , 
-                        "south"      : "none"                      , 
-                        "up"         : "true"                      , 
-                        "waterlogged": "false"                       
+                        "id": "minecraft:cobblestone_wall",
+                        "up": "true",
+                        "waterlogged": "false",
+                        "east": "low",
+                        "west": "none",
+                        "south": "none",
+                        "north": "none"
                     }
-                }, 
-                { "pos": [-2, 1, 0], "is": {"id": "minecraft:air"} }, 
+                },
                 {
-                    "pos": [-1, 0, 0], 
+                    "pos": [
+                        -1,
+                        0,
+                        0
+                    ],
                     "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "east"       : "tall"                      , 
-                        "up"         : "true"                      , 
-                        "waterlogged": "false"                     , 
-                        "south"      : "none"                      , 
-                        "west"       : "low"                       , 
-                        "north"      : "none"                        
+                        "id": "minecraft:cobblestone_wall",
+                        "east": "low",
+                        "waterlogged": "false",
+                        "west": "low",
+                        "north": "none",
+                        "up": "false",
+                        "south": "none"
                     }
-                }, 
+                },
                 {
-                    "pos": [-1, 1, 0], 
+                    "pos": [
+                        0,
+                        0,
+                        0
+                    ],
                     "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "south"      : "none"                      , 
-                        "east"       : "low"                       , 
-                        "up"         : "true"                      , 
-                        "waterlogged": "false"                     , 
-                        "west"       : "none"                      , 
-                        "north"      : "none"                        
-                    }
-                }, 
-                {
-                    "pos": [0, 0, 0], 
-                    "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "up"         : "true"                      , 
-                        "waterlogged": "false"                     , 
-                        "south"      : "none"                      , 
-                        "west"       : "tall"                      , 
-                        "east"       : "none"                      , 
-                        "north"      : "none"                        
-                    }
-                }, 
-                {
-                    "pos": [0, 1, 0], 
-                    "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "south"      : "none"                      , 
-                        "north"      : "none"                      , 
-                        "up"         : "true"                      , 
-                        "east"       : "none"                      , 
-                        "west"       : "low"                       , 
-                        "waterlogged": "false"                       
+                        "id": "minecraft:cobblestone_wall",
+                        "up": "true",
+                        "waterlogged": "false",
+                        "east": "none",
+                        "west": "low",
+                        "north": "none",
+                        "south": "none"
                     }
                 }
             ]
-        }, 
+        },
         {
-            "at": 4, 
-            "do": "assert", 
+            "at": 2,
+            "do": "place_each",
+            "blocks": [
+                {
+                    "pos": [
+                        -1,
+                        1,
+                        0
+                    ],
+                    "block": {
+                        "id": "minecraft:cobblestone_wall"
+                    }
+                }
+            ]
+        },
+        {
+            "at": 2,
+            "do": "assert",
             "checks": [
                 {
-                    "pos": [-2, 0, 0], 
+                    "pos": [
+                        -2,
+                        0,
+                        0
+                    ],
                     "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "up"         : "true"                      , 
-                        "north"      : "none"                      , 
-                        "south"      : "none"                      , 
-                        "waterlogged": "false"                     , 
-                        "west"       : "none"                      , 
-                        "east"       : "tall"                        
+                        "id": "minecraft:cobblestone_wall",
+                        "east": "low",
+                        "west": "none",
+                        "north": "none",
+                        "south": "none",
+                        "up": "true",
+                        "waterlogged": "false"
                     }
-                }, 
+                },
                 {
-                    "pos": [-2, 1, 0], 
+                    "pos": [
+                        -2,
+                        1,
+                        0
+                    ],
                     "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "east"       : "low"                       , 
-                        "south"      : "none"                      , 
-                        "west"       : "none"                      , 
-                        "waterlogged": "false"                     , 
-                        "up"         : "true"                      , 
-                        "north"      : "none"                        
+                        "id": "minecraft:air"
                     }
-                }, 
+                },
                 {
-                    "pos": [-1, 0, 0], 
+                    "pos": [
+                        -1,
+                        0,
+                        0
+                    ],
                     "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "north"      : "none"                      , 
-                        "south"      : "none"                      , 
-                        "waterlogged": "false"                     , 
-                        "west"       : "tall"                      , 
-                        "east"       : "tall"                      , 
-                        "up"         : "false"                       
+                        "id": "minecraft:cobblestone_wall",
+                        "north": "none",
+                        "up": "false",
+                        "waterlogged": "false",
+                        "south": "none",
+                        "west": "low",
+                        "east": "low"
                     }
-                }, 
+                },
                 {
-                    "pos": [-1, 1, 0], 
+                    "pos": [
+                        -1,
+                        1,
+                        0
+                    ],
                     "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "west"       : "low"                       , 
-                        "north"      : "none"                      , 
-                        "east"       : "low"                       , 
-                        "south"      : "none"                      , 
-                        "up"         : "false"                     , 
-                        "waterlogged": "false"                       
+                        "id": "minecraft:air"
                     }
-                }, 
+                },
                 {
-                    "pos": [0, 0, 0], 
+                    "pos": [
+                        0,
+                        0,
+                        0
+                    ],
                     "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "waterlogged": "false"                     , 
-                        "up"         : "true"                      , 
-                        "south"      : "none"                      , 
-                        "north"      : "none"                      , 
-                        "east"       : "none"                      , 
-                        "west"       : "tall"                        
+                        "id": "minecraft:cobblestone_wall",
+                        "south": "none",
+                        "north": "none",
+                        "east": "none",
+                        "up": "true",
+                        "waterlogged": "false",
+                        "west": "low"
                     }
-                }, 
+                },
                 {
-                    "pos": [0, 1, 0], 
+                    "pos": [
+                        0,
+                        1,
+                        0
+                    ],
                     "is": {
-                        "id"         : "minecraft:cobblestone_wall", 
-                        "north"      : "none"                      , 
-                        "west"       : "low"                       , 
-                        "up"         : "true"                      , 
-                        "east"       : "none"                      , 
-                        "south"      : "none"                      , 
-                        "waterlogged": "false"                       
+                        "id": "minecraft:cobblestone_wall",
+                        "west": "none",
+                        "south": "none",
+                        "north": "none",
+                        "waterlogged": "false",
+                        "east": "none",
+                        "up": "true"
+                    }
+                }
+            ]
+        },
+        {
+            "at": 3,
+            "do": "place_each",
+            "blocks": [
+                {
+                    "pos": [
+                        -2,
+                        1,
+                        0
+                    ],
+                    "block": {
+                        "id": "minecraft:cobblestone_wall"
+                    }
+                }
+            ]
+        },
+        {
+            "at": 3,
+            "do": "assert",
+            "checks": [
+                {
+                    "pos": [
+                        -2,
+                        0,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:cobblestone_wall",
+                        "west": "none",
+                        "east": "low",
+                        "north": "none",
+                        "south": "none",
+                        "up": "true",
+                        "waterlogged": "false"
+                    }
+                },
+                {
+                    "pos": [
+                        -2,
+                        1,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:air"
+                    }
+                },
+                {
+                    "pos": [
+                        -1,
+                        0,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:cobblestone_wall",
+                        "east": "tall",
+                        "up": "true",
+                        "waterlogged": "false",
+                        "south": "none",
+                        "west": "low",
+                        "north": "none"
+                    }
+                },
+                {
+                    "pos": [
+                        -1,
+                        1,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:cobblestone_wall",
+                        "south": "none",
+                        "east": "low",
+                        "up": "true",
+                        "waterlogged": "false",
+                        "west": "none",
+                        "north": "none"
+                    }
+                },
+                {
+                    "pos": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:cobblestone_wall",
+                        "up": "true",
+                        "waterlogged": "false",
+                        "south": "none",
+                        "west": "tall",
+                        "east": "none",
+                        "north": "none"
+                    }
+                },
+                {
+                    "pos": [
+                        0,
+                        1,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:cobblestone_wall",
+                        "south": "none",
+                        "north": "none",
+                        "up": "true",
+                        "east": "none",
+                        "west": "low",
+                        "waterlogged": "false"
+                    }
+                }
+            ]
+        },
+        {
+            "at": 4,
+            "do": "assert",
+            "checks": [
+                {
+                    "pos": [
+                        -2,
+                        0,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:cobblestone_wall",
+                        "up": "true",
+                        "north": "none",
+                        "south": "none",
+                        "waterlogged": "false",
+                        "west": "none",
+                        "east": "tall"
+                    }
+                },
+                {
+                    "pos": [
+                        -2,
+                        1,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:cobblestone_wall",
+                        "east": "low",
+                        "south": "none",
+                        "west": "none",
+                        "waterlogged": "false",
+                        "up": "true",
+                        "north": "none"
+                    }
+                },
+                {
+                    "pos": [
+                        -1,
+                        0,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:cobblestone_wall",
+                        "north": "none",
+                        "south": "none",
+                        "waterlogged": "false",
+                        "west": "tall",
+                        "east": "tall",
+                        "up": "false"
+                    }
+                },
+                {
+                    "pos": [
+                        -1,
+                        1,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:cobblestone_wall",
+                        "west": "low",
+                        "north": "none",
+                        "east": "low",
+                        "south": "none",
+                        "up": "false",
+                        "waterlogged": "false"
+                    }
+                },
+                {
+                    "pos": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:cobblestone_wall",
+                        "waterlogged": "false",
+                        "up": "true",
+                        "south": "none",
+                        "north": "none",
+                        "east": "none",
+                        "west": "tall"
+                    }
+                },
+                {
+                    "pos": [
+                        0,
+                        1,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:cobblestone_wall",
+                        "north": "none",
+                        "west": "low",
+                        "up": "true",
+                        "east": "none",
+                        "south": "none",
+                        "waterlogged": "false"
                     }
                 }
             ]
         }
-    ], 
+    ],
     "breakpoints": []
 }
-

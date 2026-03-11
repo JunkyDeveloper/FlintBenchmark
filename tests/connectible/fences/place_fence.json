@@ -1,35 +1,105 @@
 {
-    "flintVersion": "1.1", 
-    "name": "place_fence", 
-    "description": "Tests fence connection behavior across different wood types (oak, birch, jungle, spruce, dark_oak, mangrove, cherry, acacia, pale_oak, warped, crimson, bamboo) and validates connections/disconnections with non-fence blocks.", 
-    "tags": ["connectible", "fence", "wood-types", "block-state", "neighbor-update"], 
-    "minecraftIds": ["minecraft:oak_fence"], 
-    "dependencies": [], 
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json",
+    "flintVersion": "1.1",
+    "name": "place_fence",
+    "description": "Tests fence connection behavior across different wood types (oak, birch, jungle, spruce, dark_oak, mangrove, cherry, acacia, pale_oak, warped, crimson, bamboo) and validates connections/disconnections with non-fence blocks.",
+    "tags": [
+        "connectible",
+        "fence",
+        "wood-types",
+        "block-state",
+        "neighbor-update"
+    ],
+    "minecraftIds": [
+        "minecraft:oak_fence"
+    ],
+    "dependencies": [],
     "setup": {
         "cleanup": {
-            "region": [ [0, 0, 0], [0, 1, 0] ]
+            "region": [
+                [
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0
+                ]
+            ]
         }
-    }, 
+    },
     "timeline": [
-        { "at": 0, "do": "place", "pos": [0, 0, 0], "block": {"id": "minecraft:stone"} }, 
         {
-            "at": 1, 
-            "do": "assert", 
+            "at": 0,
+            "do": "place",
+            "pos": [
+                0,
+                0,
+                0
+            ],
+            "block": {
+                "id": "minecraft:stone"
+            }
+        },
+        {
+            "at": 1,
+            "do": "assert",
             "checks": [
-                { "pos": [0, 0, 0], "is": {"id": "minecraft:stone"} }
+                {
+                    "pos": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:stone"
+                    }
+                }
             ]
-        }, 
-        { "at": 1, "do": "use_item_on", "pos": [0, 0, 0], "face": "top", "item": "oak_fence" }, 
+        },
         {
-            "at": 2, 
-            "do": "assert", 
+            "at": 1,
+            "do": "use_item_on",
+            "pos": [
+                0,
+                0,
+                0
+            ],
+            "face": "top",
+            "item": "oak_fence"
+        },
+        {
+            "at": 2,
+            "do": "assert",
             "checks": [
-                { "pos": [0, 0, 0], "is": {"id": "minecraft:stone"    } }, 
-                { "pos": [0, 1, 0], "is": {"id": "minecraft:oak_fence"} },
-                { "slot": "hotbar1", "is": "empty"}
+                {
+                    "pos": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:stone"
+                    }
+                },
+                {
+                    "pos": [
+                        0,
+                        1,
+                        0
+                    ],
+                    "is": {
+                        "id": "minecraft:oak_fence"
+                    }
+                },
+                {
+                    "slot": "hotbar1",
+                    "is": "empty"
+                }
             ]
         }
-    ], 
+    ],
     "breakpoints": []
 }
-
