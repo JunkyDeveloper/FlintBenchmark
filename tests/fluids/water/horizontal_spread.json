@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
     "name": "water_horizontal_spread", 
     "description": "Water spreads horizontally up to 4 blocks from source", 
     "tags": ["basic", "flow", "horizontal"], 

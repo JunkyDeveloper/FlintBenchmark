@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
     "name": "water_max_spread_distance", 
     "description": "Water spreads exactly 7 blocks from source on flat surface", 
     "tags": ["distance", "limit"], 

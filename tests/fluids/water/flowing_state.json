@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
     "name": "water_flowing_state", 
     "description": "Water has correct flowing state when not at source level", 
     "tags": ["state", "flow"], 

@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
     "name": "water_falling_state", 
     "description": "Water sets falling=true when flowing downward", 
     "tags": ["state", "falling"], 
