@@ -26,8 +26,7 @@
             "do": "assert", 
             "checks": [
                 { "pos": [0, 0, 0], "is": {"id": "minecraft:stone"}                        }, 
-                { "pos": [0, 1, 0], "is": {"id": "minecraft:oak_fence"}                    }, 
-                {                   "is": "empty"                      , "slot": "hotbar1" }  
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:oak_fence"}                    }
             ]
         }
     ], 

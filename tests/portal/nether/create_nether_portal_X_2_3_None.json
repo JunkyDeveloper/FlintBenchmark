@@ -9,8 +9,7 @@
     "setup": {
         "cleanup": {
             "region": [ [0, 0, 0], [30, 30, 30] ]
-        }, 
-        "player": null
+        }
     }, 
     "timeline": [
         {
@@ -31,7 +30,7 @@
         }, 
         { "at": 2, "do": "use_item_on", "pos": [1, 0, 0], "face": "top", "item": "minecraft:flint_and_steel" }, 
         {
-            "at": 4, 
+            "at": 3, 
             "do": "assert", 
             "checks": [
                 { "pos": [0, 1, 0], "is": {"id": "minecraft:obsidian"                  } }, 
