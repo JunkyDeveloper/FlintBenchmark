@@ -1,7 +1,9 @@
 {
     "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "0.0.0",
     "name": "water_vertical_column", 
-    "description": "Water creates continuous vertical column when falling", 
+    "description": "Water creates continuous vertical column when falling",
+    "minecraftIds": ["minecraft:water"],
     "tags": ["vertical", "falling"], 
     "setup": {
         "cleanup": {

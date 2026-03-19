@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
-    "flintVersion": null, 
+    "flintVersion": "1.0.0", 
     "name": "destroy_nether_portal_X_2_3_Bottom", 
     "description": "Test different portal size to destroy", 
     "tags": ["portal", "nether_portal", "obsidian", "fire"], 
@@ -9,8 +9,7 @@
     "setup": {
         "cleanup": {
             "region": [ [0, 0, 0], [23, 23, 23] ]
-        }, 
-        "player": null
+        }
     }, 
     "timeline": [
         {

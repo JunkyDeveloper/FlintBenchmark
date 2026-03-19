@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
-    "flintVersion": null, 
+    "flintVersion": "1.0.0", 
     "name": "nether_portal_X_2_3_None", 
     "description": "Test different portal size", 
     "tags": ["portal", "nether_portal", "obsidian", "fire"], 
@@ -9,8 +9,7 @@
     "setup": {
         "cleanup": {
             "region": [ [0, 0, 0], [30, 30, 30] ]
-        }, 
-        "player": null
+        }
     }, 
     "timeline": [
         {

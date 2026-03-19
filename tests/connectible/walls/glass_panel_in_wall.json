@@ -1,9 +1,10 @@
 {
     "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
-    "flintVersion": null, 
+    "flintVersion": "0.0.0",
     "name": "glass_panel_in_wall", 
     "description": "Recorded test: glass_panel_in_wall", 
     "tags": ["wall", "glass", "connectible"], 
+    "minecraftIds": ["minecraft:cobblestone_wall"], 
     "dependencies": [], 
     "setup": {
         "cleanup": {
