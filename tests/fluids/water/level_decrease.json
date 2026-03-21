@@ -1,7 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
-    "flintVersion": "0.0.0",
-    "minecraftIds": ["minecraft:water"],
+    "flintVersion": "0.0.0", 
+    "minecraftIds": ["minecraft:water"], 
     "name": "water_level_decrease", 
     "description": "Water level decreases by 1 per block horizontally", 
     "tags": ["level", "flow"], 

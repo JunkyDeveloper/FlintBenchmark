@@ -1,6 +1,6 @@
 {
     "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
-    "flintVersion": "0.0.0",
+    "flintVersion": "0.0.0", 
     "name": "fence_row_connections", 
     "description": "Places fences in a row, one per tick, and verifies they connect to each other", 
     "tags": ["connectible", "fence", "wood-types", "block-state", "neighbor-update"], 
