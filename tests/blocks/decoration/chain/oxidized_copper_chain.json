@@ -3,7 +3,7 @@
     "flintVersion": "1.1", 
     "name": "oxidice_copper_chain", 
     "description": "Tests the weathering of copper chain", 
-    "tags": ["chain"], 
+    "tags": ["chain", "copper"], 
     "minecraftIds": ["minecraft:copper_chain", "minecraft:oxidized_copper_chain"], 
     "dependencies": [], 
     "setup": {
