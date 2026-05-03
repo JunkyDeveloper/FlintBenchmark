@@ -18,16 +18,17 @@
             "at": 1, 
             "do": "assert", 
             "checks": [
-                { "pos": [0, 0, 0], "is": {"id": "minecraft:copper_chain", "waterlogged":false, "axis": "y"} }
+                { "pos": [0, 0, 0], "is": {"id": "minecraft:copper_chain", "waterlogged": false, "axis": "y"} }
             ]
         }, 
         {
             "at": 200000, 
             "do": "assert", 
             "checks": [
-                { "pos": [0, 0, 0], "is": {"id": "minecraft:oxidized_copper_chain", "waterlogged":false, "axis": "y"} }
+                { "pos": [0, 0, 0], "is": {"id": "minecraft:oxidized_copper_chain", "waterlogged": false, "axis": "y"} }
             ]
         }
     ], 
     "breakpoints": []
 }
+
