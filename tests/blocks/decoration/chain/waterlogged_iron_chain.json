@@ -4,7 +4,7 @@
     "name": "waterlogged_iron_chain", 
     "description": "Tests the placing of chain in water", 
     "tags": ["chain", "waterlogged"], 
-    "minecraftIds": ["minecraft:iron_chain", "minecraft:water", "minecraft:water_bukket", "minecraft:empty_bukket"], 
+    "minecraftIds": ["minecraft:iron_chain", "minecraft:water", "minecraft:water_bucket", "minecraft:bucket"], 
     "dependencies": [], 
     "setup": {
         "cleanup": {
@@ -59,7 +59,7 @@
                 { "pos": [ 0,  0,  0], "is": {"id": "minecraft:iron_chain", "axis": "y", "waterlogged": false} }  
             ]
         }, 
-        { "at": 3, "do": "use_item_on", "pos": [0, 0, 0], "face": "top", "item": "minecraft:water_bucker" }, 
+        { "at": 3, "do": "use_item_on", "pos": [0, 0, 0], "face": "top", "item": "minecraft:water_bucket" }, 
         {
             "at": 4, 
             "do": "assert", 
