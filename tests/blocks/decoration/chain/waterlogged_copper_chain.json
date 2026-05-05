@@ -59,7 +59,7 @@
                 { "pos": [ 0,  0,  0], "is": {"id": "minecraft:copper_chain", "axis": "y", "waterlogged": false} }  
             ]
         }, 
-        { "at": 3, "do": "use_item_on", "pos": [0, 0, 0], "face": "east", "item": "minecraft:water_bucket" }, 
+        { "at": 3, "do": "use_item_on", "pos": [0, 0, -1], "face": "top", "item": "minecraft:water_bucket" }, 
         {
             "at": 4, 
             "do": "assert", 
