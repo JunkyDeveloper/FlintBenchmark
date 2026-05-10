@@ -1,7 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
-    "flintVersion": "1.0",
-    "name": "bars_connections",
+    "flintVersion": "1.0", 
+    "name": "bars_connections", 
     "description": "Test different portal size", 
     "tags": ["bar", "block-state", "neighbor-update", "connectible"], 
     "minecraftIds": [
@@ -1049,36 +1049,90 @@
                 }, 
                 {
                     "pos": [5, 0, 1], 
-                    "is": {
-                        "id"         : "minecraft:copper_bars", 
-                        "east"       : "false"                , 
-                        "waterlogged": "false"                , 
-                        "north"      : "true"                 , 
-                        "west"       : "true"                 , 
-                        "south"      : "true"                   
-                    }
+                    "is": [
+                        {
+                            "id"         : "minecraft:copper_bars", 
+                            "east"       : "false"                , 
+                            "waterlogged": "false"                , 
+                            "north"      : "true"                 , 
+                            "west"       : "true"                 , 
+                            "south"      : "true"                   
+                        }, 
+                        {
+                            "id"         : "minecraft:exposed_copper_bars", 
+                            "east"       : "false"                        , 
+                            "waterlogged": "false"                        , 
+                            "north"      : "true"                         , 
+                            "west"       : "true"                         , 
+                            "south"      : "true"                           
+                        }, 
+                        {
+                            "id"         : "minecraft:weathered_copper_bars", 
+                            "east"       : "false"                          , 
+                            "waterlogged": "false"                          , 
+                            "north"      : "true"                           , 
+                            "west"       : "true"                           , 
+                            "south"      : "true"                             
+                        }, 
+                        {
+                            "id"         : "minecraft:oxidized_copper_bars", 
+                            "east"       : "false"                         , 
+                            "waterlogged": "false"                         , 
+                            "north"      : "true"                          , 
+                            "west"       : "true"                          , 
+                            "south"      : "true"                            
+                        }
+                    ]
                 }, 
                 {
                     "pos": [5, 0, 2], 
-                    "is": {
-                        "id"         : "minecraft:exposed_copper_bars", 
-                        "east"       : "false"                        , 
-                        "south"      : "true"                         , 
-                        "waterlogged": "false"                        , 
-                        "north"      : "true"                         , 
-                        "west"       : "false"                          
-                    }
+                    "is": [
+                        {
+                            "id"         : "minecraft:exposed_copper_bars", 
+                            "east"       : "false"                        , 
+                            "south"      : "true"                         , 
+                            "waterlogged": "false"                        , 
+                            "north"      : "true"                         , 
+                            "west"       : "false"                          
+                        }, 
+                        {
+                            "id"         : "minecraft:weathered_copper_bars", 
+                            "east"       : "false"                          , 
+                            "south"      : "true"                           , 
+                            "waterlogged": "false"                          , 
+                            "north"      : "true"                           , 
+                            "west"       : "false"                            
+                        }, 
+                        {
+                            "id"         : "minecraft:oxidized_copper_bars", 
+                            "east"       : "false"                         , 
+                            "south"      : "true"                          , 
+                            "waterlogged": "false"                         , 
+                            "north"      : "true"                          , 
+                            "west"       : "false"                           
+                        }
+                    ]
                 }, 
                 {
                     "pos": [5, 0, 3], 
-                    "is": {
-                        "id"         : "minecraft:weathered_copper_bars", 
-                        "south"      : "true"                           , 
-                        "north"      : "true"                           , 
-                        "east"       : "false"                          , 
-                        "west"       : "false"                          , 
-                        "waterlogged": "false"                            
-                    }
+                    "is": [
+                        {
+                            "id"         : "minecraft:weathered_copper_bars", 
+                            "south"      : "true"                           , 
+                            "north"      : "true"                           , 
+                            "east"       : "false"                          , 
+                            "west"       : "false"                          , 
+                            "waterlogged": "false"                            
+                        }, 
+                        {
+                            "id"         : "minecraft:oxidized_copper_bars", 
+                            "south"      : "true"                          , 
+                            "north"      : "true"                          , 
+                            "east"       : "false"                         , 
+                            "west"       : "false"                         , 
+                            "waterlogged": "false"                           
+                        }
+                    ]
                 }, 
                 {
                     "pos": [5, 0, 4], 
@@ -1527,7 +1581,7 @@
                     "is": {
                         "id"         : "minecraft:oxidized_copper_bars", 
                         "west"       : "false"                         , 
-                        "east"       : "false"                         , 
+                        "east"       : "true"                          , 
                         "south"      : "true"                          , 
                         "waterlogged": "false"                         , 
                         "north"      : "true"                            
