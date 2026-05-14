@@ -4,6 +4,7 @@
     "name": "connectible_wall", 
     "description": "Tests cobblestone wall connection behavior with adjacent blocks (solid blocks, fences, walls, barriers) and validates correct directional state updates.", 
     "tags": ["connectible", "wall", "block-state", "neighbor-update"], 
+    "minecraftIds": ["minecraft:cobblestone_wall"],
     "dependencies": [], 
     "setup": {
         "cleanup": {

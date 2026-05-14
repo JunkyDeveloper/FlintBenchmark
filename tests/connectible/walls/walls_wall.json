@@ -4,6 +4,7 @@
     "name": "walls_wall", 
     "description": "Recorded test: walls_wall", 
     "tags": ["wall", "connectible", "block-state", "neighbor-update"], 
+    "minecraftIds": ["minecraft:cobblestone_wall"],
     "dependencies": [], 
     "setup": {
         "cleanup": {

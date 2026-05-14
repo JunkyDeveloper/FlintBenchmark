@@ -4,6 +4,7 @@
     "name": "glass_panel_in_wall", 
     "description": "Recorded test: glass_panel_in_wall", 
     "tags": ["wall", "glass", "connectible"], 
+    "minecraftIds": ["minecraft:cobblestone_wall"], 
     "dependencies": [], 
     "setup": {
         "cleanup": {

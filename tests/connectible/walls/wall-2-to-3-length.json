@@ -4,6 +4,7 @@
     "name": "walls", 
     "description": "Recorded test: walls", 
     "tags": ["wall", "connectible"], 
+    "minecraftIds": ["minecraft:cobblestone_wall"],
     "dependencies": [], 
     "setup": {
         "cleanup": {

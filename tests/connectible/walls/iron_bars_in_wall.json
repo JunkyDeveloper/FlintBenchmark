@@ -4,6 +4,7 @@
     "name": "iron_bars_in_wall", 
     "description": "Recorded test: iron_bars_in_wall", 
     "tags": ["wall", "bars", "connectible"], 
+    "minecraftIds": ["minecraft:cobblestone_wall"],
     "dependencies": [], 
     "setup": {
         "cleanup": {

@@ -4,6 +4,7 @@
     "name": "fences_over_walls", 
     "description": "Recorded test: fences_over_walls", 
     "tags": ["wall", "fence", "connectible"], 
+    "minecraftIds": ["minecraft:cobblestone_wall"], 
     "dependencies": [], 
     "setup": {
         "cleanup": {
