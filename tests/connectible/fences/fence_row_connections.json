@@ -1,0 +1,123 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "0.0.0", 
+    "name": "fence_row_connections", 
+    "description": "Places fences in a row, one per tick, and verifies they connect to each other", 
+    "tags": ["connectible", "fence", "wood-types", "block-state", "neighbor-update"], 
+    "minecraftIds": ["minecraft:oak_fence"], 
+    "setup": {
+        "cleanup": {
+            "region": [ [0, 63, 0], [10, 66, 2] ]
+        }
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "fill", 
+            "region": [ [0, 63, 0], [10, 63, 2] ], 
+            "with": {"id": "minecraft:stone"}
+        }, 
+        { "at": 1, "do": "place", "pos": [0, 64, 0], "block": {"id": "minecraft:oak_fence"} }, 
+        {
+            "at": 1, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 64, 0], "is": {"id": "minecraft:oak_fence", "east": "false", "west": "false"} }
+            ]
+        }, 
+        { "at": 2, "do": "place", "pos": [1, 64, 0], "block": {"id": "minecraft:oak_fence"} }, 
+        {
+            "at": 2, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 64, 0], "is": {"id": "minecraft:oak_fence", "east": "true"                 } }, 
+                { "pos": [1, 64, 0], "is": {"id": "minecraft:oak_fence", "east": "false", "west": "true"} }  
+            ]
+        }, 
+        { "at": 3, "do": "place", "pos": [2, 64, 0], "block": {"id": "minecraft:oak_fence"} }, 
+        {
+            "at": 3, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 64, 0], "is": {"id": "minecraft:oak_fence"                                 } }, 
+                { "pos": [1, 64, 0], "is": {"id": "minecraft:oak_fence", "east": "true" , "west": "true"} }, 
+                { "pos": [2, 64, 0], "is": {"id": "minecraft:oak_fence", "east": "false", "west": "true"} }  
+            ]
+        }, 
+        { "at": 4, "do": "place", "pos": [3, 64, 0], "block": {"id": "minecraft:oak_fence"} }, 
+        {
+            "at": 4, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [2, 64, 0], "is": {"id": "minecraft:oak_fence", "east": "true" , "west": "true"} }, 
+                { "pos": [3, 64, 0], "is": {"id": "minecraft:oak_fence", "east": "false", "west": "true"} }  
+            ]
+        }, 
+        { "at": 5, "do": "place", "pos": [4, 64, 0], "block": {"id": "minecraft:oak_fence"} }, 
+        {
+            "at": 5, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [3, 64, 0], "is": {"id": "minecraft:oak_fence", "east": "true" , "west": "true"} }, 
+                { "pos": [4, 64, 0], "is": {"id": "minecraft:oak_fence", "east": "false", "west": "true"} }  
+            ]
+        }, 
+        {
+            "at": 6, 
+            "do": "assert", 
+            "checks": [
+                {
+                    "pos": [0, 64, 0], 
+                    "is": {
+                        "id"   : "minecraft:oak_fence", 
+                        "east" : "true"               , 
+                        "west" : "false"              , 
+                        "north": "false"              , 
+                        "south": "false"                
+                    }
+                }, 
+                {
+                    "pos": [1, 64, 0], 
+                    "is": {
+                        "id"   : "minecraft:oak_fence", 
+                        "east" : "true"               , 
+                        "west" : "true"               , 
+                        "north": "false"              , 
+                        "south": "false"                
+                    }
+                }, 
+                {
+                    "pos": [2, 64, 0], 
+                    "is": {
+                        "id"   : "minecraft:oak_fence", 
+                        "east" : "true"               , 
+                        "west" : "true"               , 
+                        "north": "false"              , 
+                        "south": "false"                
+                    }
+                }, 
+                {
+                    "pos": [3, 64, 0], 
+                    "is": {
+                        "id"   : "minecraft:oak_fence", 
+                        "east" : "true"               , 
+                        "west" : "true"               , 
+                        "north": "false"              , 
+                        "south": "false"                
+                    }
+                }, 
+                {
+                    "pos": [4, 64, 0], 
+                    "is": {
+                        "id"   : "minecraft:oak_fence", 
+                        "east" : "false"              , 
+                        "west" : "true"               , 
+                        "north": "false"              , 
+                        "south": "false"                
+                    }
+                }
+            ]
+        }
+    ]
+}
+
