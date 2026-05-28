@@ -1,0 +1,97 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.0.0", 
+    "name": "destroy_nether_portal_X_2_3_Center", 
+    "description": "Test different portal size to destroy", 
+    "tags": ["portal", "nether_portal", "obsidian", "fire"], 
+    "minecraftIds": ["minecraft:obsidian", "minecraft:fire", "minecraft:nether_portal"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [0, 0, 0], [23, 23, 23] ]
+        }
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [0, 0, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [0, 1, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [0, 2, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [0, 3, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [0, 4, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [1, 0, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [1, 4, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [2, 0, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [2, 4, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [3, 0, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [3, 1, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [3, 2, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [3, 3, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [3, 4, 0], "block": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [1, 1, 0], "block": {"id": "minecraft:nether_portal", "axis": "x"} }, 
+                { "pos": [1, 2, 0], "block": {"id": "minecraft:nether_portal", "axis": "x"} }, 
+                { "pos": [1, 3, 0], "block": {"id": "minecraft:nether_portal", "axis": "x"} }, 
+                { "pos": [2, 1, 0], "block": {"id": "minecraft:nether_portal", "axis": "x"} }, 
+                { "pos": [2, 2, 0], "block": {"id": "minecraft:nether_portal", "axis": "x"} }, 
+                { "pos": [2, 3, 0], "block": {"id": "minecraft:nether_portal", "axis": "x"} }  
+            ]
+        }, 
+        {
+            "at": 1, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 0, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [0, 2, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [0, 3, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [0, 4, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [1, 0, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [1, 4, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [2, 0, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [2, 4, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [3, 0, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [3, 1, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [3, 2, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [3, 3, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [3, 4, 0], "is": {"id": "minecraft:obsidian"                  } }, 
+                { "pos": [1, 1, 0], "is": {"id": "minecraft:nether_portal", "axis": "x"} }, 
+                { "pos": [1, 2, 0], "is": {"id": "minecraft:nether_portal", "axis": "x"} }, 
+                { "pos": [1, 3, 0], "is": {"id": "minecraft:nether_portal", "axis": "x"} }, 
+                { "pos": [2, 1, 0], "is": {"id": "minecraft:nether_portal", "axis": "x"} }, 
+                { "pos": [2, 2, 0], "is": {"id": "minecraft:nether_portal", "axis": "x"} }, 
+                { "pos": [2, 3, 0], "is": {"id": "minecraft:nether_portal", "axis": "x"} }  
+            ]
+        }, 
+        { "at": 2, "do": "place", "pos": [1, 2, 0], "block": {"id": "minecraft:air"} }, 
+        {
+            "at": 6, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 0, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [0, 2, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [0, 3, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [0, 4, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [1, 0, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [1, 4, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [2, 0, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [2, 4, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [3, 0, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [3, 1, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [3, 2, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [3, 3, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [3, 4, 0], "is": {"id": "minecraft:obsidian"} }, 
+                { "pos": [1, 1, 0], "is": {"id": "minecraft:air"     } }, 
+                { "pos": [1, 2, 0], "is": {"id": "minecraft:air"     } }, 
+                { "pos": [1, 3, 0], "is": {"id": "minecraft:air"     } }, 
+                { "pos": [2, 1, 0], "is": {"id": "minecraft:air"     } }, 
+                { "pos": [2, 2, 0], "is": {"id": "minecraft:air"     } }, 
+                { "pos": [2, 3, 0], "is": {"id": "minecraft:air"     } }  
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+

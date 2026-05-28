@@ -1,0 +1,105 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "0.0.0", 
+    "name": "walls", 
+    "description": "Recorded test: walls", 
+    "tags": ["wall", "connectible"], 
+    "minecraftIds": ["minecraft:cobblestone_wall"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [-1, -1, -3], [1, 121, 1] ]
+        }
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [0, 0,  0], "block": {"id": "minecraft:cobblestone_wall"} }, 
+                { "pos": [0, 0, -1], "block": {"id": "minecraft:cobblestone_wall"} }  
+            ]
+        }, 
+        {
+            "at": 1, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [0, 0, -2], "block": {"id": "minecraft:cobblestone_wall"} }
+            ]
+        }, 
+        {
+            "at": 1, 
+            "do": "assert", 
+            "checks": [
+                {
+                    "pos": [0, 0, 0], 
+                    "is": {
+                        "id"         : "minecraft:cobblestone_wall", 
+                        "north"      : "low"                       , 
+                        "up"         : "true"                      , 
+                        "waterlogged": "false"                     , 
+                        "west"       : "none"                      , 
+                        "east"       : "none"                      , 
+                        "south"      : "none"                        
+                    }
+                }, 
+                {
+                    "pos": [0, 0, -1], 
+                    "is": {
+                        "id"         : "minecraft:cobblestone_wall", 
+                        "south"      : "low"                       , 
+                        "waterlogged": "false"                     , 
+                        "up"         : "true"                      , 
+                        "east"       : "none"                      , 
+                        "north"      : "none"                      , 
+                        "west"       : "none"                        
+                    }
+                }
+            ]
+        }, 
+        {
+            "at": 2, 
+            "do": "assert", 
+            "checks": [
+                {
+                    "pos": [0, 0, 0], 
+                    "is": {
+                        "id"         : "minecraft:cobblestone_wall", 
+                        "waterlogged": "false"                     , 
+                        "west"       : "none"                      , 
+                        "south"      : "none"                      , 
+                        "up"         : "true"                      , 
+                        "north"      : "low"                       , 
+                        "east"       : "none"                        
+                    }
+                }, 
+                {
+                    "pos": [0, 0, -1], 
+                    "is": {
+                        "id"         : "minecraft:cobblestone_wall", 
+                        "south"      : "low"                       , 
+                        "east"       : "none"                      , 
+                        "waterlogged": "false"                     , 
+                        "west"       : "none"                      , 
+                        "up"         : "false"                     , 
+                        "north"      : "low"                         
+                    }
+                }, 
+                {
+                    "pos": [0, 0, -2], 
+                    "is": {
+                        "id"         : "minecraft:cobblestone_wall", 
+                        "south"      : "low"                       , 
+                        "up"         : "true"                      , 
+                        "north"      : "none"                      , 
+                        "waterlogged": "false"                     , 
+                        "west"       : "none"                      , 
+                        "east"       : "none"                        
+                    }
+                }
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+
