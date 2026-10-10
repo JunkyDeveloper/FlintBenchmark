@@ -1,0 +1,43 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.1", 
+    "name": "Fence Gate Placement In Wall", 
+    "description": "A gate placed with a wall on either side of its opening gets in_wall=true, but walls only in front of and behind it leave in_wall=false.", 
+    "tags": ["connectible", "fence_gate", "wall", "placement", "player"], 
+    "minecraftIds": ["minecraft:oak_fence_gate", "minecraft:cobblestone_wall"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [-1, 0, -1], [4, 1, 1] ]
+        }, 
+        "player": {"game_mode": "Survival"}
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [ 0, 0,  0], "block": {"id": "minecraft:stone"           } }, 
+                { "pos": [-1, 1,  0], "block": {"id": "minecraft:cobblestone_wall"} }, 
+                { "pos": [ 4, 0,  0], "block": {"id": "minecraft:stone"           } }, 
+                { "pos": [ 4, 1, -1], "block": {"id": "minecraft:cobblestone_wall"} }, 
+                { "pos": [ 4, 1,  1], "block": {"id": "minecraft:cobblestone_wall"} }  
+            ]
+        }, 
+        { "at": 1, "do": "tp", "entity_alias": "player", "pos": [0.5, 3, 0.5], "rot": [0, 90] }, 
+        {"at": 1, "do": "interact", "item": "minecraft:oak_fence_gate"}, 
+        { "at": 2, "do": "tp", "entity_alias": "player", "pos": [4.5, 3, 0.5], "rot": [0, 90] }, 
+        {"at": 2, "do": "set_slot", "slot": "hotbar1", "item": "minecraft:oak_fence_gate"}, 
+        {"at": 3, "do": "interact", "item": "minecraft:oak_fence_gate"}, 
+        {
+            "at": 4, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:oak_fence_gate", "facing": "south", "in_wall": "true" } }, 
+                { "pos": [4, 1, 0], "is": {"id": "minecraft:oak_fence_gate", "facing": "south", "in_wall": "false"} }  
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+
