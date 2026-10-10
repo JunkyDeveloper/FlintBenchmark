@@ -1,0 +1,78 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.0.0", 
+    "name": "button_support_loss", 
+    "description": "Floor, wall and ceiling buttons break when the block they are attached to is removed, while removing an unrelated neighbouring block leaves them in place.", 
+    "tags": ["redstone", "button", "oak-button", "stone-button", "support", "neighbor-update"], 
+    "minecraftIds": ["minecraft:oak_button", "minecraft:stone_button", "minecraft:stone"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [-1, 0, -1], [8, 3, 6] ]
+        }
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [0, 0, 0], "block": {"id": "minecraft:stone"                                             } }, 
+                { "pos": [2, 1, 1], "block": {"id": "minecraft:stone"                                             } }, 
+                { "pos": [4, 2, 0], "block": {"id": "minecraft:stone"                                             } }, 
+                { "pos": [6, 0, 0], "block": {"id": "minecraft:stone"                                             } }, 
+                { "pos": [7, 0, 0], "block": {"id": "minecraft:stone"                                             } }, 
+                { "pos": [0, 1, 0], "block": {"id": "minecraft:oak_button"  , "face": "floor"  , "facing": "north"} }, 
+                { "pos": [2, 1, 0], "block": {"id": "minecraft:oak_button"  , "face": "wall"   , "facing": "north"} }, 
+                { "pos": [4, 1, 0], "block": {"id": "minecraft:oak_button"  , "face": "ceiling", "facing": "north"} }, 
+                { "pos": [6, 1, 0], "block": {"id": "minecraft:oak_button"  , "face": "floor"  , "facing": "north"} }, 
+                { "pos": [0, 0, 4], "block": {"id": "minecraft:stone"                                             } }, 
+                { "pos": [2, 1, 5], "block": {"id": "minecraft:stone"                                             } }, 
+                { "pos": [4, 2, 4], "block": {"id": "minecraft:stone"                                             } }, 
+                { "pos": [6, 0, 4], "block": {"id": "minecraft:stone"                                             } }, 
+                { "pos": [7, 0, 4], "block": {"id": "minecraft:stone"                                             } }, 
+                { "pos": [0, 1, 4], "block": {"id": "minecraft:stone_button", "face": "floor"  , "facing": "north"} }, 
+                { "pos": [2, 1, 4], "block": {"id": "minecraft:stone_button", "face": "wall"   , "facing": "north"} }, 
+                { "pos": [4, 1, 4], "block": {"id": "minecraft:stone_button", "face": "ceiling", "facing": "north"} }, 
+                { "pos": [6, 1, 4], "block": {"id": "minecraft:stone_button", "face": "floor"  , "facing": "north"} }  
+            ]
+        }, 
+        {
+            "at": 2, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:oak_button"  , "face": "floor"  , "facing": "north"} }, 
+                { "pos": [2, 1, 0], "is": {"id": "minecraft:oak_button"  , "face": "wall"   , "facing": "north"} }, 
+                { "pos": [4, 1, 0], "is": {"id": "minecraft:oak_button"  , "face": "ceiling", "facing": "north"} }, 
+                { "pos": [6, 1, 0], "is": {"id": "minecraft:oak_button"  , "face": "floor"  , "facing": "north"} }, 
+                { "pos": [0, 1, 4], "is": {"id": "minecraft:stone_button", "face": "floor"  , "facing": "north"} }, 
+                { "pos": [2, 1, 4], "is": {"id": "minecraft:stone_button", "face": "wall"   , "facing": "north"} }, 
+                { "pos": [4, 1, 4], "is": {"id": "minecraft:stone_button", "face": "ceiling", "facing": "north"} }, 
+                { "pos": [6, 1, 4], "is": {"id": "minecraft:stone_button", "face": "floor"  , "facing": "north"} }  
+            ]
+        }, 
+        { "at": 3, "do": "remove", "pos": [0, 0, 0] }, 
+        { "at": 3, "do": "remove", "pos": [2, 1, 1] }, 
+        { "at": 3, "do": "remove", "pos": [4, 2, 0] }, 
+        { "at": 3, "do": "remove", "pos": [7, 0, 0] }, 
+        { "at": 3, "do": "remove", "pos": [0, 0, 4] }, 
+        { "at": 3, "do": "remove", "pos": [2, 1, 5] }, 
+        { "at": 3, "do": "remove", "pos": [4, 2, 4] }, 
+        { "at": 3, "do": "remove", "pos": [7, 0, 4] }, 
+        {
+            "at": 5, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:air"                                             } }, 
+                { "pos": [2, 1, 0], "is": {"id": "minecraft:air"                                             } }, 
+                { "pos": [4, 1, 0], "is": {"id": "minecraft:air"                                             } }, 
+                { "pos": [6, 1, 0], "is": {"id": "minecraft:oak_button"  , "face": "floor", "facing": "north"} }, 
+                { "pos": [0, 1, 4], "is": {"id": "minecraft:air"                                             } }, 
+                { "pos": [2, 1, 4], "is": {"id": "minecraft:air"                                             } }, 
+                { "pos": [4, 1, 4], "is": {"id": "minecraft:air"                                             } }, 
+                { "pos": [6, 1, 4], "is": {"id": "minecraft:stone_button", "face": "floor", "facing": "north"} }  
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+

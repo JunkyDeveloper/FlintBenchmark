@@ -1,0 +1,48 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.1", 
+    "name": "Fence Solid Face Connection", 
+    "description": "An oak fence connects to neighbours whose facing side is a full sturdy face (glass, double slab, stair back) but not to partial faces (bottom slab, stair front).", 
+    "tags": ["connectible", "fence", "block-state", "neighbor-update"], 
+    "minecraftIds": ["minecraft:oak_fence", "minecraft:glass", "minecraft:stone_slab", "minecraft:stone_stairs"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [0, 0, 0], [1, 0, 10] ]
+        }
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [0, 0, 0] , "block": {"id": "minecraft:oak_fence"}                                        }, 
+                { "pos": [0, 0, 2] , "block": {"id": "minecraft:oak_fence"}                                        }, 
+                { "pos": [0, 0, 4] , "block": {"id": "minecraft:oak_fence"}                                        }, 
+                { "pos": [0, 0, 6] , "block": {"id": "minecraft:oak_fence"}                                        }, 
+                { "pos": [0, 0, 8] , "block": {"id": "minecraft:oak_fence"}                                        }, 
+                { "pos": [0, 0, 10], "block": {"id": "minecraft:oak_fence"}                                        }, 
+                { "pos": [1, 0, 0] , "block": {"id": "minecraft:glass"}                                            }, 
+                { "pos": [1, 0, 2] , "block": {"id": "minecraft:stone_slab", "type": "double"}                     }, 
+                { "pos": [1, 0, 4] , "block": {"id": "minecraft:stone_slab", "type": "bottom"}                     }, 
+                { "pos": [1, 0, 6] , "block": {"id": "minecraft:stone_stairs", "facing": "west", "half": "bottom"} }, 
+                { "pos": [1, 0, 8] , "block": {"id": "minecraft:stone_stairs", "facing": "east", "half": "bottom"} }, 
+                { "pos": [1, 0, 10], "block": {"id": "minecraft:stone_slab", "type": "top"}                        }  
+            ]
+        }, 
+        {
+            "at": 1, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 0,  0], "is": {"id": "minecraft:oak_fence", "east": "true" } }, 
+                { "pos": [0, 0,  2], "is": {"id": "minecraft:oak_fence", "east": "true" } }, 
+                { "pos": [0, 0,  4], "is": {"id": "minecraft:oak_fence", "east": "false"} }, 
+                { "pos": [0, 0,  6], "is": {"id": "minecraft:oak_fence", "east": "true" } }, 
+                { "pos": [0, 0,  8], "is": {"id": "minecraft:oak_fence", "east": "false"} }, 
+                { "pos": [0, 0, 10], "is": {"id": "minecraft:oak_fence", "east": "false"} }  
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+

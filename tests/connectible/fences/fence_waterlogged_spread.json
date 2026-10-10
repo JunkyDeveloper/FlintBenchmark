@@ -1,0 +1,46 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.1", 
+    "name": "Fence Waterlogged Spread", 
+    "description": "A waterlogged oak fence acts as a water source and spreads water into adjacent empty space, while staying waterlogged.", 
+    "tags": ["connectible", "fence", "waterlogged", "block-state", "fluid"], 
+    "minecraftIds": ["minecraft:oak_fence", "minecraft:water", "minecraft:stone"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [0, 0, -1], [4, 1, 1] ]
+        }
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "fill", 
+            "region": [ [0, 0, -1], [4, 0, 1] ], 
+            "with": {"id": "minecraft:stone"}
+        }, 
+        {
+            "at": 0, 
+            "do": "fill", 
+            "region": [ [0, 1, -1], [4, 1, -1] ], 
+            "with": {"id": "minecraft:stone"}
+        }, 
+        {
+            "at": 0, 
+            "do": "fill", 
+            "region": [ [0, 1, 1], [4, 1, 1] ], 
+            "with": {"id": "minecraft:stone"}
+        }, 
+        { "at": 1, "do": "place", "pos": [2, 1, 0], "block": {"id": "minecraft:oak_fence", "waterlogged": "true"} }, 
+        {
+            "at": 30, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [2, 1, 0], "is": {"id": "minecraft:oak_fence", "waterlogged": "true"} }, 
+                { "pos": [1, 1, 0], "is": {"id": "minecraft:water"                           } }, 
+                { "pos": [3, 1, 0], "is": {"id": "minecraft:water"                           } }  
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+
