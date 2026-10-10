@@ -1,0 +1,54 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.1", 
+    "name": "Nether Brick Fence Connections", 
+    "description": "A nether brick fence connects to other nether brick fences and solid blocks, but not to any wooden fence, and connects through a fence gate only when the gate is aligned.", 
+    "tags": ["connectible", "fence", "nether-brick", "block-state", "neighbor-update"], 
+    "minecraftIds": [
+        "minecraft:nether_brick_fence", "minecraft:oak_fence"         , "minecraft:crimson_fence"     , 
+        "minecraft:bamboo_fence"      , "minecraft:oak_fence_gate"    , "minecraft:stone"             
+    ], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [0, 0, 0], [1, 0, 12] ]
+        }
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [0, 0,  0], "block": {"id": "minecraft:nether_brick_fence"                   } }, 
+                { "pos": [0, 0,  2], "block": {"id": "minecraft:nether_brick_fence"                   } }, 
+                { "pos": [0, 0,  4], "block": {"id": "minecraft:nether_brick_fence"                   } }, 
+                { "pos": [0, 0,  6], "block": {"id": "minecraft:nether_brick_fence"                   } }, 
+                { "pos": [0, 0,  8], "block": {"id": "minecraft:nether_brick_fence"                   } }, 
+                { "pos": [0, 0, 10], "block": {"id": "minecraft:nether_brick_fence"                   } }, 
+                { "pos": [0, 0, 12], "block": {"id": "minecraft:nether_brick_fence"                   } }, 
+                { "pos": [1, 0,  0], "block": {"id": "minecraft:nether_brick_fence"                   } }, 
+                { "pos": [1, 0,  2], "block": {"id": "minecraft:stone"                                } }, 
+                { "pos": [1, 0,  4], "block": {"id": "minecraft:oak_fence"                            } }, 
+                { "pos": [1, 0,  6], "block": {"id": "minecraft:crimson_fence"                        } }, 
+                { "pos": [1, 0,  8], "block": {"id": "minecraft:bamboo_fence"                         } }, 
+                { "pos": [1, 0, 10], "block": {"id": "minecraft:oak_fence_gate"    , "facing": "north"} }, 
+                { "pos": [1, 0, 12], "block": {"id": "minecraft:oak_fence_gate"    , "facing": "east" } }  
+            ]
+        }, 
+        {
+            "at": 1, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 0,  0], "is": {"id": "minecraft:nether_brick_fence", "east": "true" } }, 
+                { "pos": [0, 0,  2], "is": {"id": "minecraft:nether_brick_fence", "east": "true" } }, 
+                { "pos": [0, 0,  4], "is": {"id": "minecraft:nether_brick_fence", "east": "false"} }, 
+                { "pos": [0, 0,  6], "is": {"id": "minecraft:nether_brick_fence", "east": "false"} }, 
+                { "pos": [0, 0,  8], "is": {"id": "minecraft:nether_brick_fence", "east": "false"} }, 
+                { "pos": [0, 0, 10], "is": {"id": "minecraft:nether_brick_fence", "east": "true" } }, 
+                { "pos": [0, 0, 12], "is": {"id": "minecraft:nether_brick_fence", "east": "false"} }  
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+

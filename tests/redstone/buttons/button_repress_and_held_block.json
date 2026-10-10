@@ -1,0 +1,80 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.0.0", 
+    "name": "button_repress_and_held_block", 
+    "description": "Clicking a button while holding a block presses it instead of placing the block, and clicking an already pressed button does not extend its press time.", 
+    "tags": ["redstone", "button", "oak-button", "stone-button", "interaction", "timing", "player"], 
+    "minecraftIds": ["minecraft:oak_button", "minecraft:stone_button", "minecraft:stone"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [-1, 0, -1], [5, 3, 1] ]
+        }, 
+        "player": {
+            "inventory": { "hotbar1": {"id": "minecraft:stone", "count": 2} }, 
+            "selected_hotbar": 1, 
+            "game_mode": "Survival"
+        }
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "fill", 
+            "region": [ [-1, 0, -1], [5, 3, 1] ], 
+            "with": {"id": "minecraft:stone"}
+        }, 
+        {
+            "at": 1, 
+            "do": "fill", 
+            "region": [ [0, 1, 0], [4, 3, 0] ], 
+            "with": {"id": "minecraft:air"}
+        }, 
+        {
+            "at": 1, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [0, 1, 0], "block": {"id": "minecraft:oak_button"  , "face": "floor", "facing": "north"} }, 
+                { "pos": [4, 1, 0], "block": {"id": "minecraft:stone_button", "face": "floor", "facing": "north"} }  
+            ]
+        }, 
+        { "at": 4, "do": "tp", "entity_alias": "player", "pos": [0.5, 4, 0.5], "rot": [0, 90] }, 
+        {"at": 5, "do": "interact"}, 
+        { "at": 6, "do": "tp", "entity_alias": "player", "pos": [4.5, 4, 0.5], "rot": [0, 90] }, 
+        {"at": 6, "do": "interact"}, 
+        {
+            "at": 8, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:oak_button", "powered": true}                      }, 
+                { "pos": [0, 2, 0], "is": {"id": "minecraft:air"}                                              }, 
+                { "pos": [4, 1, 0], "is": {"id": "minecraft:stone_button", "powered": true}                    }, 
+                { "pos": [4, 2, 0], "is": {"id": "minecraft:air"}                                              }, 
+                {                   "is": {"id": "minecraft:stone", "count": 2}            , "slot": "hotbar1" }  
+            ]
+        }, 
+        {"at": 14, "do": "interact"}, 
+        { "at": 19, "do": "tp", "entity_alias": "player", "pos": [0.5, 4, 0.5], "rot": [0, 90] }, 
+        {"at": 20, "do": "interact"}, 
+        {
+            "at": 29, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:oak_button"  , "powered": true } }, 
+                { "pos": [4, 1, 0], "is": {"id": "minecraft:stone_button", "powered": false} }, 
+                { "pos": [4, 2, 0], "is": {"id": "minecraft:air"                           } }  
+            ]
+        }, 
+        {
+            "at": 38, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:oak_button", "powered": false}                      }, 
+                { "pos": [0, 2, 0], "is": {"id": "minecraft:air"}                                               }, 
+                { "pos": [4, 1, 0], "is": {"id": "minecraft:stone_button", "powered": false}                    }, 
+                {                   "is": {"id": "minecraft:stone", "count": 2}             , "slot": "hotbar1" }  
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+

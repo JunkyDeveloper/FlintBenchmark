@@ -1,0 +1,56 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.0.0", 
+    "name": "button_placed_powered_stays_pressed", 
+    "description": "A button placed already powered has no scheduled release tick, so it stays powered past the oak and stone press durations and keeps its lamp lit.", 
+    "tags": ["redstone", "button", "oak-button", "stone-button", "block-state", "timing"], 
+    "minecraftIds": ["minecraft:oak_button", "minecraft:stone_button", "minecraft:redstone_lamp"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [-1, 0, -1], [6, 2, 1] ]
+        }
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [0, 0, 0], "block": {"id": "minecraft:stone"} }, 
+                { "pos": [4, 0, 0], "block": {"id": "minecraft:stone"} }, 
+                { "pos": [1, 1, 0], "block": {"id": "minecraft:redstone_lamp"} }, 
+                { "pos": [5, 1, 0], "block": {"id": "minecraft:redstone_lamp"} }, 
+                {
+                    "pos": [0, 1, 0], 
+                    "block": {"id": "minecraft:oak_button", "face": "floor", "facing": "north", "powered": true}
+                }, 
+                {
+                    "pos": [4, 1, 0], 
+                    "block": {"id": "minecraft:stone_button", "face": "floor", "facing": "north", "powered": true}
+                }
+            ]
+        }, 
+        {
+            "at": 2, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:oak_button"   , "powered": true             } }, 
+                { "pos": [1, 1, 0], "is": {"id": "minecraft:redstone_lamp",                  "lit": true} }, 
+                { "pos": [4, 1, 0], "is": {"id": "minecraft:stone_button" , "powered": true             } }, 
+                { "pos": [5, 1, 0], "is": {"id": "minecraft:redstone_lamp",                  "lit": true} }  
+            ]
+        }, 
+        {
+            "at": 45, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:oak_button"   , "powered": true             } }, 
+                { "pos": [1, 1, 0], "is": {"id": "minecraft:redstone_lamp",                  "lit": true} }, 
+                { "pos": [4, 1, 0], "is": {"id": "minecraft:stone_button" , "powered": true             } }, 
+                { "pos": [5, 1, 0], "is": {"id": "minecraft:redstone_lamp",                  "lit": true} }  
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+
