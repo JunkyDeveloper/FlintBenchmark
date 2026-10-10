@@ -1,0 +1,38 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.1", 
+    "name": "Fence Gate Torch Support", 
+    "description": "A torch on top of a closed gate stays; once the gate is opened its support shape is empty and the torch is removed.", 
+    "tags": ["connectible", "fence_gate", "support", "neighbor-update", "player"], 
+    "minecraftIds": ["minecraft:oak_fence_gate", "minecraft:torch"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [0, 0, 0], [0, 1, 0] ]
+        }, 
+        "player": {"game_mode": "Survival"}
+    }, 
+    "timeline": [
+        { "at": 0, "do": "place", "pos": [0, 0, 0], "block": {"id": "minecraft:oak_fence_gate", "facing": "south"} }, 
+        { "at": 1, "do": "place", "pos": [0, 1, 0], "block": {"id": "minecraft:torch"} }, 
+        {
+            "at": 3, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:torch"} }
+            ]
+        }, 
+        { "at": 4, "do": "tp", "entity_alias": "player", "pos": [0.2, 3, 0.5], "rot": [0, 90] }, 
+        {"at": 4, "do": "interact"}, 
+        {
+            "at": 6, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 0, 0], "is": {"id": "minecraft:oak_fence_gate", "open": "true"} }, 
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:air"                           } }  
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+
