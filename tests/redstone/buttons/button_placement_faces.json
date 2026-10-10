@@ -1,0 +1,95 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.0.0", 
+    "name": "button_placement_faces", 
+    "description": "Survival placement against each clicked face gives an oak or stone button the matching face and facing, and consumes all twelve items.", 
+    "tags": ["redstone", "button", "oak-button", "stone-button", "placement", "block-state", "player"], 
+    "minecraftIds": ["minecraft:oak_button", "minecraft:stone_button"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [-1, 0, -1], [9, 2, 9] ]
+        }, 
+        "player": {
+            "inventory": {
+                "hotbar1": {"id": "minecraft:oak_button"  , "count": 6}, 
+                "hotbar2": {"id": "minecraft:stone_button", "count": 6}  
+            }, 
+            "selected_hotbar": 1, 
+            "game_mode": "Survival"
+        }
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [0, 1, 0], "block": {"id": "minecraft:stone"} }, 
+                { "pos": [4, 1, 0], "block": {"id": "minecraft:stone"} }, 
+                { "pos": [8, 1, 0], "block": {"id": "minecraft:stone"} }, 
+                { "pos": [0, 1, 8], "block": {"id": "minecraft:stone"} }, 
+                { "pos": [0, 1, 4], "block": {"id": "minecraft:stone"} }, 
+                { "pos": [8, 1, 4], "block": {"id": "minecraft:stone"} }  
+            ]
+        }, 
+        { "at": 1, "do": "tp", "entity_alias": "player", "pos": [0.5, 4, 0.5], "rot": [0, 90] }, 
+        {"at": 1, "do": "interact"}, 
+        { "at": 2, "do": "tp", "entity_alias": "player", "pos": [4.5, -2, 0.5], "rot": [0, -90] }, 
+        {"at": 2, "do": "interact"}, 
+        { "at": 3, "do": "tp", "entity_alias": "player", "pos": [8.5, 0, -3.5], "rot": [0, 0] }, 
+        {"at": 3, "do": "interact"}, 
+        { "at": 4, "do": "tp", "entity_alias": "player", "pos": [0.5, 0, 11.5], "rot": [180, 0] }, 
+        {"at": 4, "do": "interact"}, 
+        { "at": 5, "do": "tp", "entity_alias": "player", "pos": [3.5, 0, 4.5], "rot": [90, 0] }, 
+        {"at": 5, "do": "interact"}, 
+        { "at": 6, "do": "tp", "entity_alias": "player", "pos": [4.5, 0, 4.5], "rot": [-90, 0] }, 
+        {"at": 6, "do": "interact"}, 
+        {
+            "at": 7, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 2, 0], "is": {"id": "minecraft:oak_button", "face": "floor", "facing": "south"} }  , 
+                { "pos": [4, 0, 0], "is": {"id": "minecraft:oak_button", "face": "ceiling", "facing": "south"} }, 
+                { "pos": [8, 1, -1], "is": {"id": "minecraft:oak_button", "face": "wall", "facing": "north"} }  , 
+                { "pos": [0, 1, 9], "is": {"id": "minecraft:oak_button", "face": "wall", "facing": "south"} }   , 
+                { "pos": [1, 1, 4], "is": {"id": "minecraft:oak_button", "face": "wall", "facing": "east"} }    , 
+                { "pos": [7, 1, 4], "is": {"id": "minecraft:oak_button", "face": "wall", "facing": "west"} }    , 
+                {"slot": "hotbar1", "is": "empty"}                                                                
+            ]
+        }, 
+        { "at": 8, "do": "remove", "pos": [0, 2, 0] }, 
+        { "at": 8, "do": "remove", "pos": [4, 0, 0] }, 
+        { "at": 8, "do": "remove", "pos": [8, 1, -1] }, 
+        { "at": 8, "do": "remove", "pos": [0, 1, 9] }, 
+        { "at": 8, "do": "remove", "pos": [1, 1, 4] }, 
+        { "at": 8, "do": "remove", "pos": [7, 1, 4] }, 
+        {"at": 9, "do": "select_hotbar", "slot": 2}, 
+        { "at": 10, "do": "tp", "entity_alias": "player", "pos": [0.5, 4, 0.5], "rot": [0, 90] }, 
+        {"at": 10, "do": "interact"}, 
+        { "at": 11, "do": "tp", "entity_alias": "player", "pos": [4.5, -2, 0.5], "rot": [0, -90] }, 
+        {"at": 11, "do": "interact"}, 
+        { "at": 12, "do": "tp", "entity_alias": "player", "pos": [8.5, 0, -3.5], "rot": [0, 0] }, 
+        {"at": 12, "do": "interact"}, 
+        { "at": 13, "do": "tp", "entity_alias": "player", "pos": [0.5, 0, 11.5], "rot": [180, 0] }, 
+        {"at": 13, "do": "interact"}, 
+        { "at": 14, "do": "tp", "entity_alias": "player", "pos": [3.5, 0, 4.5], "rot": [90, 0] }, 
+        {"at": 14, "do": "interact"}, 
+        { "at": 15, "do": "tp", "entity_alias": "player", "pos": [4.5, 0, 4.5], "rot": [-90, 0] }, 
+        {"at": 15, "do": "interact"}, 
+        {
+            "at": 16, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 2, 0], "is": {"id": "minecraft:stone_button", "face": "floor", "facing": "south"} }  , 
+                { "pos": [4, 0, 0], "is": {"id": "minecraft:stone_button", "face": "ceiling", "facing": "south"} }, 
+                { "pos": [8, 1, -1], "is": {"id": "minecraft:stone_button", "face": "wall", "facing": "north"} }  , 
+                { "pos": [0, 1, 9], "is": {"id": "minecraft:stone_button", "face": "wall", "facing": "south"} }   , 
+                { "pos": [1, 1, 4], "is": {"id": "minecraft:stone_button", "face": "wall", "facing": "east"} }    , 
+                { "pos": [7, 1, 4], "is": {"id": "minecraft:stone_button", "face": "wall", "facing": "west"} }    , 
+                {"slot": "hotbar2", "is": "empty"}                                                                  
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+

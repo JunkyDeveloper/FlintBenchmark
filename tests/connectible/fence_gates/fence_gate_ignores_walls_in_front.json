@@ -1,0 +1,34 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.1", 
+    "name": "Fence Gate Ignores Walls In Front", 
+    "description": "Walls placed in front of or behind a gate (along its facing axis) never set in_wall.", 
+    "tags": ["connectible", "fence_gate", "wall", "neighbor-update"], 
+    "minecraftIds": ["minecraft:oak_fence_gate", "minecraft:cobblestone_wall"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [0, 0, -1], [0, 0, 1] ]
+        }
+    }, 
+    "timeline": [
+        { "at": 0, "do": "place", "pos": [0, 0, 0], "block": {"id": "minecraft:oak_fence_gate", "facing": "south"} }, 
+        {
+            "at": 1, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [0, 0, -1], "block": {"id": "minecraft:cobblestone_wall"} }, 
+                { "pos": [0, 0,  1], "block": {"id": "minecraft:cobblestone_wall"} }  
+            ]
+        }, 
+        {
+            "at": 2, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 0, 0], "is": {"id": "minecraft:oak_fence_gate", "facing": "south", "in_wall": "false"} }
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+

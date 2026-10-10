@@ -1,0 +1,49 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.0.0", 
+    "name": "button_placement_needs_sturdy_face", 
+    "description": "Clicking the top of an oak fence with a button places nothing and keeps the item, because a fence has no sturdy face to attach to.", 
+    "tags": ["redstone", "button", "oak-button", "stone-button", "placement", "player"], 
+    "minecraftIds": ["minecraft:oak_button", "minecraft:stone_button", "minecraft:oak_fence"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [-1, 0, -1], [5, 3, 1] ]
+        }, 
+        "player": {
+            "inventory": {
+                "hotbar1": {"id": "minecraft:oak_button"  , "count": 1}, 
+                "hotbar2": {"id": "minecraft:stone_button", "count": 1}  
+            }, 
+            "selected_hotbar": 1, 
+            "game_mode": "Survival"
+        }
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [0, 1, 0], "block": {"id": "minecraft:oak_fence"} }, 
+                { "pos": [4, 1, 0], "block": {"id": "minecraft:oak_fence"} }  
+            ]
+        }, 
+        { "at": 1, "do": "tp", "entity_alias": "player", "pos": [0.5, 4, 0.5], "rot": [0, 90] }, 
+        {"at": 2, "do": "interact"}, 
+        {"at": 3, "do": "select_hotbar", "slot": 2}, 
+        { "at": 4, "do": "tp", "entity_alias": "player", "pos": [4.5, 4, 0.5], "rot": [0, 90] }, 
+        {"at": 5, "do": "interact"}, 
+        {
+            "at": 7, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 2, 0], "is": {"id": "minecraft:air"                     }                    }, 
+                { "pos": [4, 2, 0], "is": {"id": "minecraft:air"                     }                    }, 
+                {                   "is": {"id": "minecraft:oak_button"  , "count": 1}, "slot": "hotbar1" }, 
+                {                   "is": {"id": "minecraft:stone_button", "count": 1}, "slot": "hotbar2" }  
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+

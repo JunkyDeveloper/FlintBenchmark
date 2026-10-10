@@ -1,0 +1,42 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.1", 
+    "name": "Fence Gate Nether Wood No Fire", 
+    "description": "The same setup with a crimson fence gate places no fire, because nether wood gates are not flammable.", 
+    "tags": ["connectible", "fence_gate", "fire", "flammability", "player"], 
+    "minecraftIds": [
+        "minecraft:crimson_fence_gate", "minecraft:flint_and_steel"   , "minecraft:stone_slab"        , 
+        "minecraft:fire"              
+    ], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [0, 0, 0], [1, 1, 0] ]
+        }, 
+        "player": {"game_mode": "Survival"}
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "place_each", 
+            "blocks": [
+                { "pos": [0, 0, 0], "block": {"id": "minecraft:stone_slab", "type": "bottom"}          }, 
+                { "pos": [1, 1, 0], "block": {"id": "minecraft:crimson_fence_gate", "facing": "south"} }  
+            ]
+        }, 
+        {"at": 1, "do": "set_slot", "slot": "hotbar1", "item": "minecraft:flint_and_steel"}, 
+        { "at": 1, "do": "tp", "entity_alias": "player", "pos": [0.5, 3, 0.5], "rot": [0, 90] }, 
+        {"at": 2, "do": "interact"}, 
+        {
+            "at": 3, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 1, 0], "is": {"id": "minecraft:air"               }                    }, 
+                { "pos": [1, 1, 0], "is": {"id": "minecraft:crimson_fence_gate"}                    }, 
+                {                   "is": {"id": "minecraft:flint_and_steel"   }, "slot": "hotbar1" }  
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+

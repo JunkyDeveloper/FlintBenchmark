@@ -1,0 +1,40 @@
+{
+    "$schema": "https://raw.githubusercontent.com/FlintTestMC/flint-core/refs/heads/main/flint-content/test_spec_schema.json", 
+    "flintVersion": "1.1", 
+    "name": "Fence Gate Redstone Power", 
+    "description": "A closed gate opens and becomes powered when a redstone block is placed beside it, and closes when the block is removed.", 
+    "tags": ["connectible", "fence_gate", "redstone", "neighbor-update"], 
+    "minecraftIds": ["minecraft:oak_fence_gate", "minecraft:redstone_block"], 
+    "dependencies": [], 
+    "setup": {
+        "cleanup": {
+            "region": [ [0, 0, 0], [1, 0, 0] ]
+        }
+    }, 
+    "timeline": [
+        {
+            "at": 0, 
+            "do": "place", 
+            "pos": [0, 0, 0], 
+            "block": {"id": "minecraft:oak_fence_gate", "facing": "south", "open": "false", "powered": "false"}
+        }, 
+        { "at": 1, "do": "place", "pos": [1, 0, 0], "block": {"id": "minecraft:redstone_block"} }, 
+        {
+            "at": 2, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 0, 0], "is": {"id": "minecraft:oak_fence_gate", "open": "true", "powered": "true"} }
+            ]
+        }, 
+        { "at": 3, "do": "remove", "pos": [1, 0, 0] }, 
+        {
+            "at": 4, 
+            "do": "assert", 
+            "checks": [
+                { "pos": [0, 0, 0], "is": {"id": "minecraft:oak_fence_gate", "open": "false", "powered": "false"} }
+            ]
+        }
+    ], 
+    "breakpoints": []
+}
+
