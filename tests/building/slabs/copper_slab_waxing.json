@@ -48,7 +48,7 @@
                     "is": {"id": "minecraft:waxed_exposed_cut_copper_slab", "type": "top", "waterlogged": true}
                 }, 
                 { "pos": [3, 1, 0], "is": {"id": "minecraft:waxed_exposed_cut_copper_slab", "type": "double"} }, 
-                { "pos": [6, 1, 0], "is": {"id": "minecraft:waxed_exposed_cut_copper_slab", "type": "bottom"} },
+                { "pos": [6, 1, 0], "is": {"id": "minecraft:waxed_exposed_cut_copper_slab", "type": "bottom"} }, 
                 { "is": {"id": "minecraft:honeycomb", "count": 2}, "slot": "hotbar1" }
             ]
         }
