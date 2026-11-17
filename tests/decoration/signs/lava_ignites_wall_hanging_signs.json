@@ -15,7 +15,8 @@
                 "minecraft:spawn_mobs": false, 
                 "minecraft:advance_time": false, 
                 "minecraft:advance_weather": false, 
-                "minecraft:random_tick_speed": 4096
+                "minecraft:random_tick_speed": 4096, 
+                "minecraft:fire_spread_radius_around_player": -1
             }
         }
     }, 

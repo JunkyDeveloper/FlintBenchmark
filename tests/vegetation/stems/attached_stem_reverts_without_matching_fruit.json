@@ -17,18 +17,6 @@
     "timeline": [
         {
             "at": 0, 
-            "do": "fill", 
-            "region": [ [-1, 0, -1], [11, 2, 1] ], 
-            "with": {"id": "minecraft:stone"}
-        }, 
-        {
-            "at": 4, 
-            "do": "fill", 
-            "region": [ [0, 1, 0], [10, 1, 0] ], 
-            "with": {"id": "minecraft:air"}
-        }, 
-        {
-            "at": 4, 
             "do": "place_each", 
             "blocks": [
                 { "pos": [ 0, 0, 0], "block": {"id": "minecraft:farmland"                               } }, 
@@ -50,7 +38,7 @@
             ]
         }, 
         {
-            "at": 5, 
+            "at": 1, 
             "do": "assert", 
             "checks": [
                 { "pos": [0, 1, 0], "is": {"id": "minecraft:attached_pumpkin_stem", "facing": "east"} }, 
@@ -59,12 +47,12 @@
                 { "pos": [9, 1, 0], "is": {"id": "minecraft:attached_melon_stem"  , "facing": "east"} }  
             ]
         }, 
-        { "at": 5, "do": "remove", "pos": [1, 1, 0] }, 
-        { "at": 5, "do": "place", "pos": [4, 1, 0], "block": {"id": "minecraft:melon"} }, 
-        { "at": 5, "do": "remove", "pos": [7, 1, 0] }, 
-        { "at": 5, "do": "place", "pos": [10, 1, 0], "block": {"id": "minecraft:pumpkin"} }, 
+        { "at": 1, "do": "remove", "pos": [1, 1, 0] }, 
+        { "at": 1, "do": "place", "pos": [4, 1, 0], "block": {"id": "minecraft:melon"} }, 
+        { "at": 1, "do": "remove", "pos": [7, 1, 0] }, 
+        { "at": 1, "do": "place", "pos": [10, 1, 0], "block": {"id": "minecraft:pumpkin"} }, 
         {
-            "at": 6, 
+            "at": 2, 
             "do": "assert", 
             "checks": [
                 { "pos": [ 0, 1, 0], "is": {"id": "minecraft:pumpkin_stem", "age": 7} }, 

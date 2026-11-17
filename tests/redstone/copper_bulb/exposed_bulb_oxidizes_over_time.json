@@ -34,7 +34,7 @@
             "at": 1, 
             "do": "assert", 
             "checks": [
-                { "pos": [0, 0, 0], "is": {"id": "minecraft:exposed_copper_bulb", "lit": true, "powered": false} }
+                { "pos": [0, 0, 0], "is": [{"id": "minecraft:exposed_copper_bulb", "lit": true, "powered": false}, {"id": "minecraft:weathered_copper_bulb", "lit": true, "powered": false}, {"id": "minecraft:oxidized_copper_bulb", "lit": true, "powered": false}] }
             ]
         }, 
         {

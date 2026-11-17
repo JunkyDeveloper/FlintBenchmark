@@ -30,14 +30,7 @@
             "checks": [
                 {
                     "pos": [0, 0, 0], 
-                    "is": {
-                        "id"         : "minecraft:exposed_copper_bars", 
-                        "north"      : "false"                        , 
-                        "south"      : "false"                        , 
-                        "east"       : "false"                        , 
-                        "west"       : "true"                         , 
-                        "waterlogged": "false"                          
-                    }
+                    "is": [{"id": "minecraft:exposed_copper_bars", "north": "false", "south": "false", "east": "false", "west": "true", "waterlogged": "false"}, {"id": "minecraft:weathered_copper_bars", "north": "false", "south": "false", "east": "false", "west": "true", "waterlogged": "false"}, {"id": "minecraft:oxidized_copper_bars", "north": "false", "south": "false", "east": "false", "west": "true", "waterlogged": "false"}]
                 }
             ]
         }, 

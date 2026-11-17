@@ -7,6 +7,14 @@
     "minecraftIds": ["minecraft:bamboo", "minecraft:dirt", "minecraft:bone_meal"], 
     "dependencies": [], 
     "setup": {
+        "world": {
+            "gamerules": {
+                "minecraft:spawn_mobs": false, 
+                "minecraft:advance_time": false, 
+                "minecraft:advance_weather": false, 
+                "minecraft:random_tick_speed": 0
+            }
+        }, 
         "cleanup": {
             "region": [ [-1, 0, -2], [1, 7, 1] ]
         }, 

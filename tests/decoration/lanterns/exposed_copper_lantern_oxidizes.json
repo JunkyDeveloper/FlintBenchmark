@@ -41,7 +41,7 @@
             "checks": [
                 {
                     "pos": [0, 0, 0], 
-                    "is": {"id": "minecraft:exposed_copper_lantern", "hanging": true, "waterlogged": false}
+                    "is": [{"id": "minecraft:exposed_copper_lantern", "hanging": true, "waterlogged": false}, {"id": "minecraft:weathered_copper_lantern", "hanging": true, "waterlogged": false}, {"id": "minecraft:oxidized_copper_lantern", "hanging": true, "waterlogged": false}]
                 }
             ]
         }, 
